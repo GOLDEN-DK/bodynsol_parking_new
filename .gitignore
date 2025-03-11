@@ -1,1 +1,89 @@
- 
+# 가상 환경
+venv/
+env/
+.env/
+.venv/
+
+# Python 캐시 파일
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 빌드 관련 파일
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller 관련 파일
+*.manifest
+*.spec
+
+# 로그 파일
+*.log
+
+# 단위 테스트 / 커버리지 보고서
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# 번역 파일
+*.mo
+*.pot
+
+# Django 관련 파일
+local_settings.py
+db.sqlite3
+
+# Flask 관련 파일
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm 관련 파일
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# VS Code 관련 파일
+.vscode/
+*.code-workspace
+
+# macOS 관련 파일
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows 관련 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ChromeDriver 관련 파일
+chromedriver
+chromedriver.exe 
