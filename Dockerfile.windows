@@ -1,0 +1,30 @@
+# Windows 기반 Docker 이미지 사용
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+# Python 설치
+SHELL ["powershell", "-Command"]
+RUN Invoke-WebRequest -Uri https://www.python.org/ftp/python/3.9.10/python-3.9.10-amd64.exe -OutFile python-3.9.10.exe ; \
+    Start-Process python-3.9.10.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; \
+    Remove-Item python-3.9.10.exe -Force
+
+# 작업 디렉토리 설정
+WORKDIR /app
+
+# 필요한 파일 복사
+COPY requirements.txt .
+COPY main.py .
+COPY login.py .
+COPY search.py .
+COPY chrome_compatibility.py .
+COPY package_installer.py .
+COPY build_exe.py .
+COPY README_WINDOWS.md .
+
+# 필요한 패키지 설치
+RUN pip install -r requirements.txt
+
+# EXE 파일 빌드
+RUN python build_exe.py
+
+# 결과물 출력
+CMD ["powershell", "-Command", "Get-ChildItem -Path ./dist -Recurse"] 
